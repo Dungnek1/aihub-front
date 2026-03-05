@@ -1,83 +1,26 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+🚀 AI Hub FrontendAI Hub Frontend là giao diện người dùng hiện đại cho nền tảng hệ sinh thái AI, được xây dựng với hiệu suất cực cao, hỗ trợ đa ngôn ngữ (i18n), SEO tối ưu và thông báo thời gian thực.🛠 1. Tech Stack & EcosystemDự án sử dụng những công nghệ mới nhất nhằm đảm bảo tốc độ phản hồi và trải nghiệm người dùng mượt mà.LayerTechnologiesCore FrameworkNext.js 16 (App Router), React 19, TypeScriptUI & StylingTailwind CSS 4, Radix UI, Ant Design, Lucide IconsState ManagementRedux Toolkit (RTK), React ReduxForm & ValidationReact Hook Form, ZodAuthenticationNextAuth.js (Auth.js)Internationalizationnext-intl (Hỗ trợ đa ngôn ngữ /vi, /en)AnimationGSAP, Framer Motion, React SpringRealtimeSocket.io Client📂 2. Project StructureCấu trúc thư mục được tổ chức theo module hóa để dễ dàng mở rộng:Plaintextaihub-front/
+├── 📁 app/               # Next.js App Router (Pages, Layouts, API Routes)
+│   ├── 📁 [locale]/      # Đa ngôn ngữ (i18n routes)
+│   └── 📁 api/           # Route Handlers (Proxy, OG Image, Revalidate)
+├── 📁 components/        # UI Components (Atomic Design: Common, Layout, Features)
+├── 📁 hooks/             # Custom React Hooks (useApi, useNotifications,...)
+├── 📁 lib/               # Configurations (Auth, i18n, API Axios instance)
+├── 📁 services/          # Client & Server API calling services
+├── 📁 store/             # Redux Store & Slices management
+├── 📁 public/            # Static assets (Images, Videos, Icons)
+├── 📁 scripts/           # Tự động hóa (Revalidate cache, Deploy scripts)
+└── 📁 docs/              # Tài liệu kỹ thuật chi tiết
+🚀 3. Getting Started3.1. PrerequisitesNode.js: v18.x trở lên (Khuyến nghị bản LTS)Package Manager: npm, pnpm hoặc yarn3.2. InstallationBash# Clone the repository
+git clone https://github.com/Dungnek1/aihub-front.git
 
-## Getting Started
+# Go to project directory
+cd aihub-front
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-
-## Cache Management
-
-This project uses multiple layers of caching for optimal performance. When admin updates blog posts, there might be a delay before changes appear on the frontend.
-
-### Quick Cache Clear
-
-```powershell
-# Windows PowerShell
-cd ai-hub-fe
-Remove-Item -Recurse -Force .next
-npm run dev
-```
-
-```bash
-# Linux/Mac
-cd ai-hub-fe
-rm -rf .next
-npm run dev
-```
-
-### On-Demand Cache Revalidation
-
-To force immediate cache refresh after admin updates:
-
-```powershell
-# Windows PowerShell
-.\scripts\revalidate-cache.ps1 all
-```
-
-```bash
-# Linux/Mac
-./scripts/revalidate-cache.sh all
-```
-
-**Environment Variable Required:**
-```env
+# Install dependencies
+npm install
+3.3. Environment VariablesTạo file .env.local tại thư mục gốc và cấu hình các thông số sau:Đoạn mãNEXT_PUBLIC_API_BASE_URL=http://localhost:3000
+NEXTAUTH_SECRET=your-nextauth-secret
+NEXTAUTH_URL=http://localhost:3000
 REVALIDATE_SECRET=your-super-secret-key
-```
-
-### Cache Configuration
-
-- **ISR Revalidate**: 60 seconds (pages auto-refresh every 60s)
-- **CDN Cache**: 60 seconds + 120s stale-while-revalidate
-- **Affected Pages**: Homepage, News, Blog, Landing pages
-
-For detailed cache management documentation, see [CACHE_MANAGEMENT.md](./CACHE_MANAGEMENT.md).
+3.4. DevelopmentBashnpm run dev
+Mở http://localhost:3000 trên trình duyệt để xem kết quả.Note: Nếu cổng 3000 bị chiếm bởi Backend, hãy chạy: PORT=3001 npm run dev⚡ 4. Cache & RevalidationDự án áp dụng chiến lược Hybrid Rendering để tối ưu tốc độ:ISR (Incremental Static Regeneration): Tự động revalidate sau mỗi 60 giây.On-Demand Revalidation: Xóa cache ngay lập tức khi dữ liệu thay đổi thông qua Webhook/Scripts.Cách xóa cache thủ công khi phát triển:Windows: Remove-Item -Recurse -Force .next; npm run devLinux/Mac: rm -rf .next && npm run dev📝 5. Development GuidelinesĐể giữ cho codebase sạch sẽ và đồng nhất, vui lòng tuân thủ:TypeScript: Luôn định nghĩa Interface/Type cho Props và Data.i18n: Không viết hard-code text. Sử dụng useTranslations từ next-intl.Components: Chia nhỏ component nếu nó vượt quá 200 dòng code.Git Commit: Sử dụng Conventional Commits (ví dụ: feat: add login logic, fix: header responsive).🛠 6. TroubleshootingLỗi API (CORS/Network): Kiểm tra NEXT_PUBLIC_API_BASE_URL trong file .env.Lỗi 404 Route: Đảm bảo URL có tiền tố ngôn ngữ (VD: /vi/dashboard thay vì /dashboard).Hydration Error: Kiểm tra việc sử dụng các dữ liệu ngẫu nhiên hoặc thời gian trong lần render đầu tiên của SSR.
