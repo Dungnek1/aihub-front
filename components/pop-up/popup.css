@@ -1,0 +1,123 @@
+@keyframes moveLeftToRight {
+  0% {
+    left: -10%;
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    left: 110%;
+    opacity: 0;
+  }
+}
+
+@keyframes rotate360 {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% center;
+  }
+
+  100% {
+    background-position: -200% center;
+  }
+}
+
+@keyframes fadeInOut {
+
+  0%,
+  100% {
+    opacity: 0.8;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes buttonPulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(34, 211, 238, 0.6), 0 0 40px rgba(34, 211, 238, 0.3);
+  }
+
+  50% {
+    box-shadow: 0 0 30px rgba(34, 211, 238, 0.8), 0 0 60px rgba(34, 211, 238, 0.5);
+  }
+}
+
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 200%;
+  }
+}
+
+@keyframes slidePic3 {
+  from {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate(-10px, -104.88px) rotate(10.11deg);
+    opacity: 1;
+  }
+}
+
+@keyframes slidePic2 {
+  from {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate(10px, -178.27px) rotate(-11.37deg);
+    opacity: 1;
+  }
+}
+
+@keyframes slidePic1 {
+  from {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate(10px, -190px) rotate(10.36deg);
+    opacity: 1;
+  }
+}
+
+.animate-pic3 {
+  animation: slidePic3 0.8s ease-out forwards;
+}
+
+.animate-pic2 {
+  animation: slidePic2 0.8s ease-out forwards;
+  animation-delay: 0.1s;
+}
+
+.animate-pic1 {
+  animation: slidePic1 0.8s ease-out forwards;
+  animation-delay: 0.2s;
+}

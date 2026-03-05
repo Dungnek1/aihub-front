@@ -1,0 +1,15 @@
+.notification-item > div {
+  background-color: transparent !important;
+  border-color: transparent !important;
+  color: #fff !important;
+}
+.notification-item > div strong {
+  color: #fff !important;
+}
+.notification-item > div > div {
+  color: rgba(209, 213, 219, 1) !important;
+}
+.notification-item > div em {
+  color: rgb(34, 211, 238) !important;
+}
+

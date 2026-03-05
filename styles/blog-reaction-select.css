@@ -1,0 +1,81 @@
+/* Ant Design Select Customization for Reaction Select - Dark Theme */
+
+.blog-reaction-select {
+    border-radius: 6px !important;
+}
+
+.blog-reaction-select .ant-select-selector {
+    background-color: #0f1722 !important;
+    border: 1px solid #374151 !important;
+    border-radius: 6px !important;
+    padding: 0 8px !important;
+    color: #ffffff !important;
+    transition: all 0.2s ease !important;
+    min-height: 36px !important;
+}
+
+.blog-reaction-select .ant-select-selector:hover {
+    border-color: #06b6d4 !important;
+}
+
+.blog-reaction-select.ant-select-focused .ant-select-selector {
+    border-color: #06b6d4 !important;
+    box-shadow: 0 0 0 2px rgba(6, 182, 212, 0.1) !important;
+}
+
+.blog-reaction-select .ant-select-clear {
+    color: #9ca3af !important;
+}
+
+.blog-reaction-select .ant-select-arrow {
+    color: #9ca3af !important;
+}
+
+/* Placeholder styling */
+.blog-reaction-select .ant-select-selection-placeholder {
+    color: #9ca3af !important;
+    opacity: 1 !important;
+}
+
+/* Selected value styling */
+.blog-reaction-select .ant-select-selection-item {
+    color: #ffffff !important;
+}
+
+/* Dropdown Customization */
+.blog-reaction-select-dropdown .ant-select-item-group-label {
+    color: #9ca3af !important;
+    padding: 8px 12px !important;
+}
+
+.blog-reaction-select-dropdown .ant-select-item {
+    color: #ffffff !important;
+    padding: 8px 12px !important;
+    background-color: #0f1722 !important;
+}
+
+.blog-reaction-select-dropdown .ant-select-item:hover {
+    background-color: #1f2937 !important;
+    color: #06b6d4 !important;
+}
+
+.blog-reaction-select-dropdown .ant-select-item-option-selected {
+    background-color: #111418 !important;
+    color: #06b6d4 !important;
+}
+
+.blog-reaction-select-dropdown .ant-select-item-option-selected:hover {
+    background-color: #1f2937 !important;
+    color: #06b6d4 !important;
+}
+
+.blog-reaction-select-dropdown {
+    background-color: #0f1722 !important;
+    border: 1px solid #374151 !important;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Loading state */
+.blog-reaction-select.ant-select-loading .ant-select-selector {
+    opacity: 0.6;
+}
