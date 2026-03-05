@@ -1,26 +1,20 @@
-🚀 AI Hub FrontendAI Hub Frontend là giao diện người dùng hiện đại cho nền tảng hệ sinh thái AI, được xây dựng với hiệu suất cực cao, hỗ trợ đa ngôn ngữ (i18n), SEO tối ưu và thông báo thời gian thực.🛠 1. Tech Stack & EcosystemDự án sử dụng những công nghệ mới nhất nhằm đảm bảo tốc độ phản hồi và trải nghiệm người dùng mượt mà.LayerTechnologiesCore FrameworkNext.js 16 (App Router), React 19, TypeScriptUI & StylingTailwind CSS 4, Radix UI, Ant Design, Lucide IconsState ManagementRedux Toolkit (RTK), React ReduxForm & ValidationReact Hook Form, ZodAuthenticationNextAuth.js (Auth.js)Internationalizationnext-intl (Hỗ trợ đa ngôn ngữ /vi, /en)AnimationGSAP, Framer Motion, React SpringRealtimeSocket.io Client📂 2. Project StructureCấu trúc thư mục được tổ chức theo module hóa để dễ dàng mở rộng:Plaintextaihub-front/
-├── 📁 app/               # Next.js App Router (Pages, Layouts, API Routes)
-│   ├── 📁 [locale]/      # Đa ngôn ngữ (i18n routes)
-│   └── 📁 api/           # Route Handlers (Proxy, OG Image, Revalidate)
-├── 📁 components/        # UI Components (Atomic Design: Common, Layout, Features)
-├── 📁 hooks/             # Custom React Hooks (useApi, useNotifications,...)
-├── 📁 lib/               # Configurations (Auth, i18n, API Axios instance)
-├── 📁 services/          # Client & Server API calling services
-├── 📁 store/             # Redux Store & Slices management
-├── 📁 public/            # Static assets (Images, Videos, Icons)
-├── 📁 scripts/           # Tự động hóa (Revalidate cache, Deploy scripts)
-└── 📁 docs/              # Tài liệu kỹ thuật chi tiết
-🚀 3. Getting Started3.1. PrerequisitesNode.js: v18.x trở lên (Khuyến nghị bản LTS)Package Manager: npm, pnpm hoặc yarn3.2. InstallationBash# Clone the repository
-git clone https://github.com/Dungnek1/aihub-front.git
-
-# Go to project directory
+🤖 AI Hub - Frontend PlatformMột giao diện hiện đại cho hệ sinh thái AI, tối ưu hiệu năng và trải nghiệm người dùng.⚡ Điểm nổi bật (Core Features)Next.js 16 & React 19: Tận dụng tối đa Server Components và Form Actions mới nhất.Tailwind CSS 4: Engine CSS siêu nhanh với cấu hình tối giản.Internationalization (i18n): Hỗ trợ đa ngôn ngữ hoàn chỉnh qua Middleware.Real-time Ready: Tích hợp Socket.io cho thông báo và dữ liệu trực tiếp.SEO & Social Sharing: Tự động tạo Metadata, Sitemap và OG Image động.🛠️ Stack kỹ thuậtLĩnh vựcCông nghệ sử dụngFrontendNext.js 16, React 19, TypeScriptStylingTailwind 4, Framer Motion, GSAPQuản lý StateRedux Toolkit, Context APIFormsReact Hook Form + Zod ValidationAuthenticationNextAuth.js (Auth.js)API ClientAxios (tích hợp Interceptors cho Auth)📂 Sơ đồ cấu trúc (Folder Map)Bashaihub-front/
+├── 🟢 app/               # Routes, Layouts & API (App Router)
+│   └── [locale]/        # Đa ngôn ngữ (VI/EN/...)
+├── 🔵 components/        # UI Reusable & Business Components
+├── 🟡 hooks/             # Custom React Hooks logic
+├── 🔴 services/          # Các hàm gọi API (Client/Server)
+├── 🟣 store/             # Cấu hình Redux & Slices
+├── ⚪ lib/               # Utility, Config (Auth, i18n, SEO)
+└── ⚙️ scripts/           # Công cụ quản lý Cache & Deployment
+🚀 Hướng dẫn cài đặt nhanh1. Chuẩn bịYêu cầu Node.js 18+ và trình quản lý gói (npm/pnpm/yarn).2. Khởi tạo dự ánBashgit clone https://github.com/Dungnek1/aihub-front.git
 cd aihub-front
-
-# Install dependencies
 npm install
-3.3. Environment VariablesTạo file .env.local tại thư mục gốc và cấu hình các thông số sau:Đoạn mãNEXT_PUBLIC_API_BASE_URL=http://localhost:3000
-NEXTAUTH_SECRET=your-nextauth-secret
-NEXTAUTH_URL=http://localhost:3000
-REVALIDATE_SECRET=your-super-secret-key
-3.4. DevelopmentBashnpm run dev
-Mở http://localhost:3000 trên trình duyệt để xem kết quả.Note: Nếu cổng 3000 bị chiếm bởi Backend, hãy chạy: PORT=3001 npm run dev⚡ 4. Cache & RevalidationDự án áp dụng chiến lược Hybrid Rendering để tối ưu tốc độ:ISR (Incremental Static Regeneration): Tự động revalidate sau mỗi 60 giây.On-Demand Revalidation: Xóa cache ngay lập tức khi dữ liệu thay đổi thông qua Webhook/Scripts.Cách xóa cache thủ công khi phát triển:Windows: Remove-Item -Recurse -Force .next; npm run devLinux/Mac: rm -rf .next && npm run dev📝 5. Development GuidelinesĐể giữ cho codebase sạch sẽ và đồng nhất, vui lòng tuân thủ:TypeScript: Luôn định nghĩa Interface/Type cho Props và Data.i18n: Không viết hard-code text. Sử dụng useTranslations từ next-intl.Components: Chia nhỏ component nếu nó vượt quá 200 dòng code.Git Commit: Sử dụng Conventional Commits (ví dụ: feat: add login logic, fix: header responsive).🛠 6. TroubleshootingLỗi API (CORS/Network): Kiểm tra NEXT_PUBLIC_API_BASE_URL trong file .env.Lỗi 404 Route: Đảm bảo URL có tiền tố ngôn ngữ (VD: /vi/dashboard thay vì /dashboard).Hydration Error: Kiểm tra việc sử dụng các dữ liệu ngẫu nhiên hoặc thời gian trong lần render đầu tiên của SSR.
+3. Biến môi trườngCopy nội dung sau vào file .env.local:Đoạn mãNEXT_PUBLIC_API_BASE_URL=http://localhost:3000
+NEXTAUTH_SECRET=your_secret_here
+REVALIDATE_SECRET=your_revalidate_key
+4. Chạy ứng dụngBashnpm run dev
+# Mặc định tại: http://localhost:3000
+🧹 Quản lý Cache (Maintenance)Dự án sử dụng ISR để đạt tốc độ tải trang gần như tức thì. Khi cần làm mới dữ liệu thủ công:Xóa bộ nhớ đệm Build:rm -rf .next (Linux/Mac) hoặc Remove-Item -Recurse .next (Windows).Làm mới dữ liệu từ xa (On-demand):Bash# Chạy script revalidate đã chuẩn bị sẵn
+./scripts/revalidate-cache.sh all
+🤝 Quy chuẩn phát triển (Workflow)Strict Type: Luôn khai báo Type/Interface cho mọi dữ liệu từ Backend.i18n First: Tuyệt đối không viết text tiếng Việt trực tiếp vào file .tsx. Sử dụng file JSON trong messages/.Clean Code: Tuân thủ cấu trúc services gọi API và hooks xử lý logic để giữ Component chỉ chứa UI.⭐ Nếu bạn thấy dự án này hữu ích, hãy tặng một Star trên GitHub nhé!
